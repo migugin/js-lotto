@@ -14,4 +14,15 @@ describe('Lotto 도메인 테스트', () => {
       expect(number >= 1 && number <= 45).toBeTruthy();
     });
   });
+
+  it('6개의 로또 번호는 오름차순으로 저장된다.', () => {
+    // given
+    const lotto = new Lotto([45, 1, 44, 2, 3, 43]);
+
+    // when
+    const { numbers } = lotto;
+
+    // then
+    expect(numbers).toEqual([1, 2, 3, 44, 45, 46]);
+  });
 });
